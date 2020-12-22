@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Nunito, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+}
+
+#wrapper {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+}
+
+#buttonscontainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 200px;
+    height:40px;
+    font-size: 20px;
+    padding: 20px;
+    background-color: rgb(74, 101, 255);
+    
+}
+
+#btnaddbooks{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 2px solid blue;
+    border-radius: 30px;
+    background-color: rgb(255, 255, 255);
+}
+
+.btntext {
+    padding: 0 5px;
+}
+
+.btnplus {
+    padding-left: 5px;
+    padding-right: 7px;
+    border-left: 2px solid blue;
+}
+
+#bookscontainer {
+    background-color: violet;
+    height: 100px;
+}
+
+#formcontainer {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 300px;
+    height: 300px;
+}
+
+.addform {
+    background-color: rgba(255, 2, 2, 0.5);
+}
