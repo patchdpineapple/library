@@ -10,34 +10,42 @@
 
 <body>
     <div id="wrapper">
-        <h1>Library</h1>
+        <h1 style="align-self: center;">Library</h1>
         <main>
             <div id="buttonscontainer">
-                <div id="btnaddbooks">
-                    <div class="btntext">add books</div>
-                    <div class="btnplus">+</div>
-                </div>
+                <button type="button" onclick="openForm()" id="btnaddbooks" class="addbtn btn">add books</button>
             </div>
             <div id="bookscontainer">
-                
+
             </div>
             <div id="formcontainer">
-                <div class="addform">
-                    
-                </div>
-                
+                <form class="addform">
+                    <h2 style="margin-top: 20px;">Add a book</h2>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" placeholder="Enter Book Title">
+                    <label for="author">Author</label>
+                    <input type="text" name="author" placeholder="Enter Author">
+                    <label for="pages"># of Pages</label>
+                    <input type="number" name="pages">
+                    <div id="statuscontainer">
+                        <p> Have you read this book? </p>
+                        <div id="radiobuttons">
+                            <input type="radio" class="radiostatus" id="read" value="read" name="status">
+                            <label for="read">Yes</label>
+                            <input type="radio" class="radiostatus" id="notread" value="not read" name="status"
+                                style="margin-left: 10px;">
+                            <label for="notread">No</label>
+                        </div>
+                    </div>
+                    <button type="submit" onclick="addBook()" id="btnadd" class="statusbtn btn"
+                        style="margin-top: 40px;">Add</button>
+                    <button type="button" onclick="closeForm()" id="btnclose" class="statusbtn btn"
+                        style="margin-top: 20px;">Close</button>
 
+                </form>
             </div>
-
-
-
         </main>
     </div>
-
-
-
-
-
 
     <script src="code.js"></script>
 </body>

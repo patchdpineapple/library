@@ -11,8 +11,15 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(0, 183, 255);
 }
+.btn {
+    border: none;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
+
 
 #wrapper {
     display: flex;
@@ -33,40 +40,96 @@ body {
     height:40px;
     font-size: 20px;
     padding: 20px;
-    background-color: rgb(74, 101, 255);
     
 }
 
-#btnaddbooks{
+
+
+.addbtn {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border: 2px solid blue;
-    border-radius: 30px;
     background-color: rgb(255, 255, 255);
+    height: 40px;
+    font-size: 20px;
+    opacity: .8;
 }
 
-.btntext {
-    padding: 0 5px;
-}
 
 .btnplus {
-    padding-left: 5px;
-    padding-right: 7px;
-    border-left: 2px solid blue;
+    background-color: blue;
+    color: white;
+    width: 20px;
+    height: 100%;
 }
 
 #bookscontainer {
     background-color: violet;
-    height: 100px;
+    height: 100%;
 }
 
 #formcontainer {
+    display: none;
     background-color: rgba(0, 0, 0, 0.5);
     width: 300px;
-    height: 300px;
+    height: 450px;
+    z-index: 9;
+    position: fixed;
+    top: 43px;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .addform {
-    background-color: rgba(255, 2, 2, 0.5);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(74, 101, 255);
+    width: 300px;
+    height: 450px;
+    position: fixed;
+    top: 43px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+.addform > label {
+    margin-left: 30px;
+    margin-top: 10px;
+    align-self: flex-start;
+    
+}
+
+.addform > input {
+    width: 80%;
+}
+
+#statuscontainer {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.statusbtn {
+    width: 30%;
+    height: 30px;
+    opacity: .8;
+    background-color: rgb(255, 255, 255);
+    
+}
+
+#btnadd {
+   background-color: red;
+
+}
+
+.btn:hover {
+    opacity: 1;
+
 }
