@@ -3,48 +3,42 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Project: Library</title>
+    <title>Project:Library</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div id="wrapper">
-        <h1 style="text-align: center;">Library</h1>
-        <main>
-            <div id="buttonscontainer">
-                <button type="button" onclick="openForm()" id="btnaddbooks" class="addbtn btn">add books</button>
+    <h1>Library</h1>
+    <button class="openform" onclick="openForm()"><b>+ New Book</b></button>
+    <div id="gridwrapper"></div>
+    <div id="formcontainer">
+        <form class="addform" id="addformid">
+            <p style="margin-top: 20px; font-size: 30px;"><b>Add a book</b></p>
+            <label for="title">Title</label>
+            <input type="text" name="title" id="inputTitle" placeholder="Enter Book Title" required>
+            <label for="author">Author</label>
+            <input type="text" name="author" id="inputAuthor" placeholder="Enter Author" required>
+            <label for="pages"># of Pages</label>
+            <input type="number" id="inputPages" name="pages" required>
+            <div id="statuscontainer">
+                <p> Have you read this book? </p>
+                <div id="radiobuttons">
+                    <input type="radio" class="radiostatus" id="radioRead" value="read" name="status" required>
+                    <label for="read">Yes</label>
+                    <input type="radio" class="radiostatus" id="radioNotRead" value="not read" name="status"
+                        style="margin-left: 10px;" required>
+                    <label for="notread">No</label>
+                </div>
             </div>
-            <div id="bookscontainer">
-            </div>
-            <div id="formcontainer">
-                <form class="addform" id="addform">
-                    <p style="margin-top: 20px; font-size: 30px;"><b>Add a book</b></p>
-                    <label for="title">Title</label>
-                    <input type="text" name="title" id="inputTitle" placeholder="Enter Book Title" required>
-                    <label for="author">Author</label>
-                    <input type="text" name="author" id="inputAuthor" placeholder="Enter Author" required>
-                    <label for="pages"># of Pages</label>
-                    <input type="number" id="inputPages" name="pages" required>
-                    <div id="statuscontainer">
-                        <p> Have you read this book? </p>
-                        <div id="radiobuttons">
-                            <input type="radio" class="radiostatus" id="radioRead" value="read" name="status" required>
-                            <label for="read">Yes</label>
-                            <input type="radio" class="radiostatus" id="radioNotRead" value="not read" name="status"
-                                style="margin-left: 10px;" required>
-                            <label for="notread">No</label>
-                        </div>
-                    </div>
-                    <button type="button" onclick="addBookArray()" id="btnadd" class="statusbtn btn"
-                        style="margin-top: 40px;">Add</button>
-                    <button type="button" onclick="closeForm()" id="btnclose" class="statusbtn btn"
-                        style="margin-top: 20px;">Close</button>
+            <button type="button" onclick="addBookArray()" id="btnadd" class="statusbtn"
+                style="margin-top: 40px;">Add</button>
+            <button type="button" onclick="closeForm()" id="btnclose" class="statusbtn"
+                style="margin-top: 20px;">Close</button>
 
-                </form>
-            </div>
-        </main>
+        </form>
     </div>
+    
+
 
     <script src="code.js"></script>
 </body>

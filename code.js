@@ -1,78 +1,39 @@
 let myLibrary = [
     // { title: 'One Piece', author: 'Eiichiro Oda', pages: 1000, status: 'not read',},
-    // { title: 'My Hero Academia', author: 'Masashi Kishimoto', pages: 400, status: 'read' }
+    // { title: 'My Hero Academia', author: 'Masashi Kishimoto', pages: 400, status: 'read' },
+    // { title: 'One Piece', author: 'Eiichiro Oda', pages: 1000, status: 'not read',},
+    // { title: 'My Hero Academia', author: 'Masashi Kishimoto', pages: 400, status: 'read' },
+    // { title: 'One Piece', author: 'Eiichiro Oda', pages: 1000, status: 'not read',},
+    // { title: 'My Hero Academia', author: 'Masashi Kishimoto', pages: 400, status: 'read' },
+    // { title: 'One Piece', author: 'Eiichiro Oda', pages: 1000, status: 'not read',},
+    // { title: 'My Hero Academia', author: 'Masashi Kishimoto', pages: 400, status: 'read' },
+    // { title: 'One Piece', author: 'Eiichiro Oda', pages: 1000, status: 'not read',},
+
 ];
 
-let bookcounter = 0;
-const bookscontainer = document.querySelector('#bookscontainer');
-/*
-const book = document.createElement('div');
-const booktitle = document.createElement('h2');
-const bookauthor = document.createElement('h2');
-const bookpages = document.createElement('h2');
-const bookstatus = document.createElement('h2');
-const booktoggle = document.createElement('button');
-const bookdelete = document.createElement('button');
+
+const gridwrapper = document.querySelector('#gridwrapper');
 
 
-booktitle.textContent = 'Title: ' + myLibrary[0].title;
-bookauthor.textContent = 'Author: ' + myLibrary[0].author;
-bookpages.textContent = 'Pages: ' + myLibrary[0].pages;
-bookstatus.textContent = 'Status: ' + myLibrary[0].status;
-bookstatus.setAttribute('id', 'booker');
-booktoggle.textContent = 'Toggle status';
-bookdelete.textContent = 'Delete Book';
-
-book.classList.add('book');
-booktoggle.classList.add('togglebook', 'btn');
-bookdelete.classList.add('deletebook', 'btn');
-
-booktoggle.addEventListener('click', () => {
-    myLibrary[0].togglestatus();
-})
-
-bookdelete.addEventListener('click', deleteBook);
-
-
-bookscontainer.append(book);
-book.append(booktitle);
-book.append(bookauthor);
-book.append(bookpages);
-book.append(bookstatus);
-book.append(booktoggle);
-book.append(bookdelete);
-*/
-
-
-
-
-
+//prototype
 function Book(title, author, pages, status) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.status = status;
-
     this.togglestatus = function () {
         if (this.status == 'read') {
-            console.clear();
-            console.table(bookArray);
+
             this.status = 'not read';
         }
         else if (this.status == 'not read') {
-            console.clear();
-            console.table(bookArray);
+
             this.status = 'read';
         }
     }
 }
 
-
-function deleteBook() {
-    console.log('book deleted');
-}
-
-
+// functions below
 function addBookArray() {
 
     const title = document.getElementById('inputTitle').value;
@@ -92,60 +53,83 @@ function addBookArray() {
     resetForm();
     document.getElementById("formcontainer").style.display = "none";
 
-   
+
     console.clear();
     console.table(myLibrary);
 
-    addBookToLibrary(myLibrary, bookcounter);
-    
+    bookgrid.remove();
+    addBookToLibrary(myLibrary);
+
 }
 
-function addBookToLibrary(bookArray) {
+function addBookToLibrary(array) {
 
-    for (i = bookcounter; i < bookArray.length; i++) {
+    const bookgrid = document.createElement('div');
+    bookgrid.setAttribute('id', 'bookgrid');
+    gridwrapper.append(bookgrid);
+
+    console.clear();
+    console.table(myLibrary);
+
+    for (i = 0; i < array.length; i++) {
+
+
         const book = document.createElement('div');
-        const booktitle = document.createElement('h2');
-        const bookauthor = document.createElement('h2');
-        const bookpages = document.createElement('h2');
-        const bookstatus = document.createElement('h2');
-        const booktoggle = document.createElement('button');
-        const bookdelete = document.createElement('button');
-
-        booktitle.textContent = 'Title: ' + bookArray[i].title;
-        bookauthor.textContent = 'Author: ' + bookArray[i].author;
-        bookpages.textContent = 'Pages: ' + bookArray[i].pages;
-        bookstatus.textContent = 'Status: ' + bookArray[i].status;
-        booktoggle.textContent = 'Toggle status';
-        bookdelete.textContent = 'Delete Book';
+        const title = document.createElement('p');
+        const author = document.createElement('p');
+        const pages = document.createElement('p');
+        const status = document.createElement('button');
+        const deletebook = document.createElement('button');
 
         book.setAttribute('id', `${i}`);
         book.classList.add('book');
-        booktoggle.classList.add('togglebook', 'btn');
-        bookdelete.classList.add('deletebook', 'btn');
+        deletebook.classList.add('btnDelete');
 
-        booktoggle.addEventListener('click', () => {
-            let findstatus = document.getElementById(`${i}`).children;
-            bookArray[i].togglestatus();
+        title.textContent = array[i].title;
+        author.textContent = array[i].author;
+        pages.textContent = array[i].pages;
+        status.textContent = array[i].status;
+        deletebook.textContent = 'Delete';
 
-            findstatus[4].textContent = 'Status: ' + bookArray[i].status;
-        })
+        status.addEventListener('click', toggleStatus);
+        deletebook.addEventListener('click', deleteOperation);
 
-        bookdelete.addEventListener('click', deleteBook);
+        bookgrid.append(book);
+        book.append(title);
+        book.append(author);
+        book.append(pages);
+        book.append(status);
+        book.append(deletebook);
+    }
+}
 
-        bookscontainer.append(book);
-        book.append(booktitle);
-        book.append(bookauthor);
-        book.append(bookpages);
-        book.append(bookstatus);
-        book.append(booktoggle);
-        book.append(bookdelete);
+function toggleStatus() {
+    let x = this.parentElement.id;
+    console.log('toggled id: ' + x);
 
-        
+    if (this.textContent == 'read') {
+        this.textContent = 'not read';
+        myLibrary[x].status = 'not read';
+    }
+    else {
+        this.textContent = 'read';
+        myLibrary[x].status = 'read';
     }
 
-    bookcounter++;
-
+    console.clear();
+    console.table(myLibrary);
 }
+
+function deleteOperation() {
+    let x = this.parentElement.id;
+    console.log('my parent element id is: ' + x);
+
+    myLibrary.splice(x, 1);
+
+    bookgrid.remove();
+    addBookToLibrary(myLibrary);
+}
+
 
 
 function openForm() {
@@ -154,16 +138,12 @@ function openForm() {
 
 function closeForm() {
     document.getElementById("formcontainer").style.display = "none";
-
 }
 
 function resetForm() {
-    document.getElementById("addform").reset();
+    document.getElementById("addformid").reset();
 }
-
-
-
 
 resetForm();
 console.table(myLibrary);
-
+addBookToLibrary(myLibrary);
