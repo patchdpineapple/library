@@ -8,18 +8,18 @@
 </head>
 
 <body>
-    <h1>Library</h1>
-    <button class="openform" onclick="openForm()"><b>+ New Book</b></button>
+    <h1 style="color: #0e49b5;">Library</h1>
+    <button class="openform" onclick="openForm()">+</button>
     <div id="gridwrapper"></div>
     <div id="formcontainer">
         <form class="addform" id="addformid">
-            <p style="margin-top: 20px; font-size: 30px;"><b>Add a book</b></p>
-            <label for="title">Title</label>
+            <p style="margin-top: 20px; font-size: 30px; color: white"><b>Add a book</b></p>
+            <label for="title" >Title</label>
             <input type="text" name="title" id="inputTitle" placeholder="Enter Book Title" required>
             <label for="author">Author</label>
             <input type="text" name="author" id="inputAuthor" placeholder="Enter Author" required>
             <label for="pages"># of Pages</label>
-            <input type="number" id="inputPages" name="pages" required>
+            <input type="number" id="inputPages" name="pages" value="1" min="1" required>
             <div id="statuscontainer">
                 <p> Have you read this book? </p>
                 <div id="radiobuttons">
@@ -30,10 +30,10 @@
                     <label for="notread">No</label>
                 </div>
             </div>
-            <button type="button" onclick="addBookArray()" id="btnadd" class="statusbtn"
-                style="margin-top: 40px;">Add</button>
-            <button type="button" onclick="closeForm()" id="btnclose" class="statusbtn"
-                style="margin-top: 20px;">Close</button>
+            <button type="button" onclick="addBookArray()" id="btnadd" class="btn-form btn-form-add"
+                >Add</button>
+            <button type="button" onclick="closeForm()" id="btnclose" class="btn-form btn-form-close"
+               >Close</button>
 
         </form>
     </div>

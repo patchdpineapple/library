@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -12,16 +14,19 @@ body {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: #153e90;
+    background-color: #fff;
 }
 
 #bookgrid {
     display:  grid;
-    grid-template-columns: repeat(3,  300px);
+    grid-template-columns: repeat(4,  1fr);
     grid-template-rows: auto;
-    grid-gap: 10px;
-    background-color: #153e90;
-    padding: 10px;
+    padding: 20px;
+    grid-gap: 20px;
+    justify-items: center;
+    align-items: center;
+    margin-top: 20px;
+    
 }
 
 .book {
@@ -29,10 +34,21 @@ body {
     flex-flow: column;
     justify-content: flex-start;
     align-items: center;
-    width: 300px;
+    width: 200px;
     height: 200px;
     padding: 5px;
-    background-color: #54e346;
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 1px rgba(27, 27, 27, 0.479);
+    overflow: hidden;
+}
+
+.read {
+    background-color: rgb(29, 29, 29);
+}
+
+.read > p {
+    color: white;
 }
 
 .book > p {
@@ -41,28 +57,40 @@ body {
 
 button {
     border: none;
-    border-radius: 10px;
-    width: 200px;
-    height: 40px;
-    font-size: 20px;
+    border-radius: 5px;
+    font-size: 12px;
     color: white;
-    background-color: rgb(38, 77, 253);
-    opacity: .8;
     margin: 5px;
 }
 
 button:hover {
-    opacity: 1;
+    opacity: .8;
 }
 
 .openform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    font-size: 24px;
+    width: 30px;
+    height: 30px;
     background-color: #0e49b5;
-
+    border-radius: 20%;
+    
 }
 
-.btnDelete 
+
+.btn-status, .btn-delete {
+    background-color: #0e49b5;
+    height: 30px;
+    width: 70px;
+}
+
+.btn-delete 
 {
-    background-color: rgb(255, 0, 0);
+    background-color: transparent;
+    color: #0e49b5
 }
 
 
@@ -72,9 +100,7 @@ button:hover {
 /* form css below*/
 #formcontainer {
     display: none;
-    background-color: rgba(0, 0, 0, 0.5);
     width: 300px;
-    height: 450px;
     z-index: 9;
     position: fixed;
     top: 40px;
@@ -93,6 +119,7 @@ button:hover {
     position: fixed;
     top: 40px;
     margin:auto;
+    border-radius: 10px;
 
 }
 
@@ -115,13 +142,18 @@ button:hover {
     width: 100%;
 }
 
-.statusbtn {
+.btn-form {
     color:black;
+    opacity: 1;
+    background-color: #f3f3f3; 
+    width: 100px;
+}
+
+.btn-form:hover {
     opacity: .8;
-    background-color: #fdbc2e; 
 }
 
 #btnadd {
     color:black;
-   background-color: #54e346;
+   margin-top: 20px;
 }
