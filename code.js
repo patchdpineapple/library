@@ -69,6 +69,31 @@ async function getLibrary() {
 });
 }
 
+async function addBookArray() {
+  //adds a new book to the grid based on input values
+  const title = document.getElementById("inputTitle").value;
+  const author = document.getElementById("inputAuthor").value;
+  const pages = Number(document.getElementById("inputPages").value);
+  let status;
+
+  if (document.getElementById("radioRead").checked) {
+    status = "Read";
+  } else if (document.getElementById("radioNotRead").checked) {
+    status = "Not read";
+  }
+
+  resetForm();
+  document.getElementById("formcontainer").style.display = "none";
+
+  await db.collection('books').add({
+    title: title,
+    author: author,
+    pages: pages,
+    status: status
+  });
+  
+}
+
 
 /* OLD CODE PLS IGNORE
 
